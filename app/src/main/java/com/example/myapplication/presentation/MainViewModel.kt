@@ -21,11 +21,11 @@ class MainViewModel @Inject constructor(
     private val _screenState: LiveData<MainScreenState>
         get() = _screenStateMutable
 
-    protected fun changeState(newState: MainScreenState) {
+    private fun changeState(newState: MainScreenState) {
         _screenStateMutable.value = newState
     }
 
-    protected val viewModelCoroutineScope = CoroutineScope(
+    private val viewModelCoroutineScope = CoroutineScope(
         Dispatchers.Main.immediate
                 + SupervisorJob()
                 + CoroutineExceptionHandler() { _, throwable -> handleError(throwable) })
