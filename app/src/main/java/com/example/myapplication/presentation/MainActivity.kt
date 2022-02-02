@@ -15,8 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //инжектирую все зависимости, помеченные в данном классе аннотацией @Inject
         (applicationContext as MyApplication).appComponent.inject(this)
-        Log.d("MainActivity1", "onCreate: $viewModel")
-
     }
 }
