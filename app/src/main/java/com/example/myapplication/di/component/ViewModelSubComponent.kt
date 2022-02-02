@@ -1,6 +1,6 @@
 package com.example.myapplication.di.component
 
-import com.example.myapplication.MainViewModel
+import com.example.myapplication.presentation.MainViewModel
 import dagger.Subcomponent
 
 @Subcomponent
