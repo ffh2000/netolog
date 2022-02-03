@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="header"><![CDATA[Изучайте <font color="blue">актуальные темы</font>]]></string>
+    <string name="repeat">Повторить</string>
 </resources>

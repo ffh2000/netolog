@@ -14,7 +14,7 @@ sealed class MainScreenState: IScreenState {
      * Режим отображения ошибки.
      * @param e ошибка. Ее текст отображается с кнопкой "Повторить"
      */
-    class Error(e: Throwable): MainScreenState()
+    class Error(val e: Throwable): MainScreenState()
 
     /**
      * Рабочий режим с отображением загруженного списка

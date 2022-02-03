@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="defaultText">
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
+
+    <style name="itemText" parent="defaultText">
+        <item name="android:textSize">@dimen/items_font_size</item>
+        <item name="android:textColor">@color/colorItemText</item>
+    </style>
+
+    <style name="headerText" parent="defaultText">
+        <item name="android:textSize">26dp</item>
+        <item name="android:textColor">@color/colorItemText</item>
+    </style>
+
+    <style name="itemCommentText" parent="defaultText">
+        <item name="android:textSize">@dimen/sub_items_font_size</item>
+        <item name="android:textColor">@color/colorItemGrayText</item>
+    </style>
+
+</resources>
