@@ -9,6 +9,8 @@ import com.example.myapplication.data.network.NetworkApi
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 /**
@@ -36,27 +38,24 @@ class MainViewModel @Inject constructor(
     fun subscribeToScreenStateChanges(): LiveData<MainScreenState> = screenState
 
     init {
-        viewModelCoroutineScope.launch {
-            changeState(MainScreenState.Working())
-            loadData()
-        }
+        loadData()
     }
 
-    fun handleError(throwable: Throwable) {
+    private fun handleError(throwable: Throwable) {
         changeState(MainScreenState.Error(throwable))
     }
 
     fun loadData() {
         changeState(MainScreenState.Loading)
         viewModelCoroutineScope.launch {
-            val response = networkApi.getTasks()
-            response
+            requestData()
+                .flowOn(Dispatchers.IO)
                 .collect {
-                    Log.d("ResponseApi", "loadData: $it")
-                    changeState(MainScreenState.Working())
-            }
+                    changeState(MainScreenState.Working(it))
+                }
         }
     }
 
+    private suspend fun requestData() = flow { emit(networkApi.getTasks()) }
 
 }

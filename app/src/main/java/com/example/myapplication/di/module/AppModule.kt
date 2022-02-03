@@ -4,6 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.BuildConfig
 import com.example.myapplication.data.network.NetworkApi
 import com.example.myapplication.presentation.MainScreenState
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

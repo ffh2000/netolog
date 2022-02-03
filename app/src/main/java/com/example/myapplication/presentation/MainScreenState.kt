@@ -1,5 +1,7 @@
 package com.example.myapplication.presentation
 
+import com.example.myapplication.data.network.Response
+
 /**
  * Класс для описания состояния экрана
  */
@@ -19,5 +21,5 @@ sealed class MainScreenState: IScreenState {
     /**
      * Рабочий режим с отображением загруженного списка
      */
-    class Working(): MainScreenState()
+    class Working(val data: Response): MainScreenState()
 }

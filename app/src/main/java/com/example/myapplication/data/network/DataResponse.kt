@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class DataResponse(
     @SerializedName("direction")
-    val direction: List<DirectionResponse>
+    val direction: DirectionResponse
 ) {}

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface NetworkApi {
 
     @GET("rn-task/master/netology.json")
-    suspend fun getTasks(): Flow<DataResponse>
+    suspend fun getTasks(): Response
 
 }
