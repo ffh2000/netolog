@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding.apply {
             includeLoadingStateLayout.loadingLayout.visibility = View.GONE
             includeErrorStateLayout.errorLayout.visibility = View.GONE
+            tasksRecyclerView.adapter = TasksAdapter(state.data.data)
         }
     }
 
