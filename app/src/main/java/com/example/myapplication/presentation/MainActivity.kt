@@ -22,12 +22,13 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //инжектирую все зависимости, помеченные в данном классе аннотацией @Inject
+        (applicationContext as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.headerTextView.text = Html.fromHtml(getString(R.string.header))
+        binding.includeErrorStateLayout.repeatButton.setOnClickListener { viewModel.refreshData() }
         setContentView(binding.root)
-        //инжектирую все зависимости, помеченные в данном классе аннотацией @Inject
-        (applicationContext as MyApplication).appComponent.inject(this)
         viewModel.subscribeToScreenStateChanges().observe(this) { state -> showState(state) }
     }
 

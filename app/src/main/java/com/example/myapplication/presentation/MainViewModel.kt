@@ -56,6 +56,10 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    fun refreshData() {
+        loadData()
+    }
+
     private suspend fun requestData() = flow { emit(networkApi.getTasks()) }
 
 }
